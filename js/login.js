@@ -2,6 +2,13 @@
 
 import { Usuario } from "./clases/Usuario.js";
 
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("clave");
+
+togglePassword.addEventListener("click", () => {
+  const type = passwordInput.type === "password" ? "text" : "password";
+  passwordInput.setAttribute("type", type);
+
 const loginForm = document.getElementById("loginForm");
 
 loginForm.addEventListener("submit", function(event) {
@@ -10,7 +17,8 @@ loginForm.addEventListener("submit", function(event) {
     const email = event.target.email.value;
     const clave = event.target.clave.value;
 
-    //mostramos por ahora los valores si se ven bien
+
+    //mostramos por ahora los valores si se ven bien ELIMINAR DESPUÉS
     console.log("Usuario:", email);
     console.log("Clave:", clave);
 
@@ -18,7 +26,7 @@ loginForm.addEventListener("submit", function(event) {
     function setUsuario(email,clave){
         //creamos un nuevo usuario
         const usuario = new Usuario(email,clave);
-        //guardamos el usuario en localStorage
+        //guardamos el usuario en localStorage FUNCIONA
         localStorage.setItem("usuario", JSON.stringify(usuario));
     }
     if (document.getElementById("rememberMe").checked){
@@ -27,25 +35,28 @@ loginForm.addEventListener("submit", function(event) {
     
     //obtenemos el usuario del localStorage
     function getUsuario(){
-        const data = (JSON.parse(localStorage.getItem("usuario")))
-        const usuario = new Usuario(data.email,data.clave);
-        if (usuario === null){
-            console.log("No se encontró el usuario");
+        const data = localStorage.getItem("usuario");
+        if(data!==null){
+        const usuario = new Usuario("","");
+        usuario.email=JSON.parse(data).email;
+        usuario.clave=JSON.parse(data).clave;
+        return usuario;
+        }
+        else{
+            console.log("No hay usuario guardado");
             return null;
         }
-        else if (usuario.email === "" || usuario.clave === ""){
-            console.log("Ninguno de los campos puede estar vacío");
-            return null;
-        }
+    
     }
 
 //verificamos si recupera al usuario
     const usuarioRecuperado = getUsuario();
-    if(usuarioRecuperado){
-        console.log("Se encontró : ",usuarioRecuperado.toString());
+    if(usuarioRecuperado){ //FUNCIONA AL FIN
+        console.log("Se encontró: ",usuarioRecuperado.toString());
     }
     else{
         console.log("No se encontró el usuario")
     }
+       });
        });
 

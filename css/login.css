@@ -1,0 +1,37 @@
+#loginForm{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    gap: 20px;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    background-image:linear-gradient(#387D9F,#1C546F,#002B40);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-check-label {
+    display: inline-block;
+    justify-content: left;
+    font-size: medium;
+    color:rgb(255, 255, 255);
+}
+#togglePassword{
+    display:inline;
+    align-items: center;
+    text-align: center;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+}
+button {
+    padding: 10px;
+    background-color: #f57e0e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width:70%;
+    margin: auto;
+}
