@@ -1,6 +1,7 @@
 export class Usuario{
 
-    constructor(email,clave){
+
+    constructor (email,clave){
         this.email=email;
         this.clave=clave;
     }
