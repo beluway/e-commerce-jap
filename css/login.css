@@ -16,6 +16,15 @@
     font-size: medium;
     color:rgb(255, 255, 255);
 }
+#togglePassword{
+    display:inline;
+    align-items: center;
+    text-align: center;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+}
 button {
     padding: 10px;
     background-color: #f57e0e;

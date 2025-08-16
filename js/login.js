@@ -2,6 +2,13 @@
 
 import { Usuario } from "./clases/Usuario.js";
 
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("clave");
+
+togglePassword.addEventListener("click", () => {
+  const type = passwordInput.type === "password" ? "text" : "password";
+  passwordInput.setAttribute("type", type);
+
 const loginForm = document.getElementById("loginForm");
 
 loginForm.addEventListener("submit", function(event) {
@@ -10,7 +17,8 @@ loginForm.addEventListener("submit", function(event) {
     const email = event.target.email.value;
     const clave = event.target.clave.value;
 
-    //mostramos por ahora los valores si se ven bien
+
+    //mostramos por ahora los valores si se ven bien ELIMINAR DESPUÉS
     console.log("Usuario:", email);
     console.log("Clave:", clave);
 
@@ -34,11 +42,11 @@ loginForm.addEventListener("submit", function(event) {
         usuario.clave=JSON.parse(data).clave;
         return usuario;
         }
-        //No sé si es necesario validar esto, ya tengo el required en el HTML
-        else if (usuario.email === "" || usuario.clave === ""){
-            console.log("Ninguno de los campos puede estar vacío");
+        else{
+            console.log("No hay usuario guardado");
             return null;
         }
+    
     }
 
 //verificamos si recupera al usuario
@@ -49,5 +57,6 @@ loginForm.addEventListener("submit", function(event) {
     else{
         console.log("No se encontró el usuario")
     }
+       });
        });
 
