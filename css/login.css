@@ -1,37 +1,104 @@
 #loginForm{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
+    height:380px;
     margin: auto;
     padding: 20px;
-    gap: 20px;
-    border: solid 1px #ccc;
+    border: none;
     border-radius: 10px;
-    background-image:linear-gradient(#387D9F,#1C546F,#002B40);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-image:linear-gradient(140deg, #387D9F,#1C546F,#001d2c);
+    box-shadow: 7px 7px 0px rgba(0, 0, 0, 0.300);
+    justify-content: center;
+    align-items:center;
 }
+
+#loginForm h1{
+text-align:center;
+font-size:40px;
+font-weight:bold;
+color:white;
+text-shadow:2px 2px 0 rgba(0, 0, 0, 0.274);
+}
+
+label.txtInput {
+    font-weight:bold;
+    align-self: flex-start;
+    margin:20px 0 5px 5px;
+    color:rgb(255, 255, 255);
+    text-shadow:1px 1px 0 rgba(0, 0, 0, 0.300);
+    margin-bottom: 5px;
+}
+
+input#clave{
+    border: none;
+    outline:none;
+    width:350px;
+    padding-left:10px;
+    padding-bottom:5px;
+    font-size:20px;
+    background-color:transparent;
+}
+
+input#email{
+    border-radius:10px;
+    border: none;
+    outline:none;
+    width:350px;
+    padding-left:10px;
+    padding-bottom:5px;
+    font-size:20px;
+    box-shadow: 4px 5px 1px rgba(0, 0, 0, 0.300);
+}
+
+input#email::placeholder, input#clave::placeholder {
+    opacity: 0.5;
+}
+
 .form-check-label {
     display: inline-block;
     justify-content: left;
     font-size: medium;
     color:rgb(255, 255, 255);
+    text-shadow:1px 1px 0 rgba(0, 0, 0, 0.300);
 }
-#togglePassword{
-    display:inline;
-    align-items: center;
-    text-align: center;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 30px;
-    color: rgb(0, 0, 0);
+
+.form-check{
+    align-self:flex-start;
+    margin:20px 0 5px 5px;
 }
+
+
+.password-container{
+    display:flex;
+    align-items:center;
+    background-color:white;
+    box-shadow: 4px 5px 1px rgba(0, 0, 0, 0.300);
+    border-radius:10px;
+    width:350px;
+}
+
+#togglePassword {
+font-size:30px;
+padding-right:5px;
+color:rgba(0, 0, 0, 0.300);
+cursor: pointer;
+
+}
+
 button {
-    padding: 10px;
+    padding-bottom:5px;
     background-color: #f57e0e;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
-    width:70%;
-    margin: auto;
+    width:140px;
+    height:40px;
+    align-self:flex-end;
+    font-weight:bold;
+    box-shadow: 4px 5px 1px rgba(0, 0, 0, 0.300);
+    font-size: 20px;
+    margin:20px 5px 0px 0px;
 }
+
