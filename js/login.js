@@ -7,7 +7,7 @@ const passwordInput = document.getElementById("clave");
 
 togglePassword.addEventListener("click", () => {
   const type = passwordInput.type === "password" ? "text" : "password";
-  passwordInput.setAttribute("type", type);
+  passwordInput.setAttribute("type", type);});
 
 const loginForm = document.getElementById("loginForm");
 
@@ -57,6 +57,5 @@ loginForm.addEventListener("submit", function(event) {
     else{
         console.log("No se encontró el usuario")
     }
-       });
-       });
+ });
 
