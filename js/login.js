@@ -5,35 +5,64 @@ import { Usuario } from "./clases/Usuario.js";
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("clave");
 
+const loginForm = document.getElementById("loginForm");
+  const emailInput = document.getElementById("email");
+  const claveInput = document.getElementById("clave");
+  const rememberMe = document.getElementById("rememberMe");
+
 togglePassword.addEventListener("click", () => {
   const type = passwordInput.type === "password" ? "text" : "password";
   passwordInput.setAttribute("type", type);});
 
-const loginForm = document.getElementById("loginForm");
 
+//revisamos si ya había un usuario logueado
+window.addEventListener("DOMContentLoaded", () => {
+    const usuario = getUsuario();
+    if (usuario) {
+      emailInput.value = usuario.email;
+      claveInput.value = usuario.clave;
+      rememberMe.checked = true;
+    }
+  });
+
+
+  //función a ejecutar cuando le demos click a ingresar
 loginForm.addEventListener("submit", function(event) {
     event.preventDefault(); // Evita que se recargue la página
 
-    const email = event.target.email.value;
-    const clave = event.target.clave.value;
+    const email = emailInput.value.trim();
+    const clave = claveInput.value.trim();
+
+    if (!email || !clave) {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
 
 
-    //mostramos por ahora los valores si se ven bien ELIMINAR DESPUÉS
-    console.log("Usuario:", email);
-    console.log("Clave:", clave);
+    if (rememberMe.checked){
+        setUsuario(email,clave);
+        const usuario = getUsuario();
+        //console.log que se muestra rápido para verificar que se haya guardado bien
+        console.log(`Se guardó correctamente al usuario: ${usuario.email}, ${usuario.clave}`); 
+    }
+    else{
+        localStorage.removeItem("usuario"); //si no se marcó la opción no hay necesidad de guardar al usuario
+    }
 
-    //creamos una instancia de Usuario
+    window.location.href = "index.html"; //redirige a la página principal
+
+});
+    
+ //creamos una instancia de Usuario
+
     function setUsuario(email,clave){
         //creamos un nuevo usuario
         const usuario = new Usuario(email,clave);
         //guardamos el usuario en localStorage FUNCIONA
         localStorage.setItem("usuario", JSON.stringify(usuario));
     }
-    if (document.getElementById("rememberMe").checked){
-        setUsuario(email,clave);
-    }
     
-    //obtenemos el usuario del localStorage
+    //obtenemos el usuario del localStorage por si lo preciso
     function getUsuario(){
         const data = localStorage.getItem("usuario");
         if(data!==null){
@@ -46,16 +75,9 @@ loginForm.addEventListener("submit", function(event) {
             console.log("No hay usuario guardado");
             return null;
         }
-    
     }
 
-//verificamos si recupera al usuario
-    const usuarioRecuperado = getUsuario();
-    if(usuarioRecuperado){ //FUNCIONA AL FIN
-        console.log("Se encontró: ",usuarioRecuperado.toString());
-    }
-    else{
-        console.log("No se encontró el usuario")
-    }
- });
+
+    
+ 
 
