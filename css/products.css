@@ -38,3 +38,12 @@
     .titulo {
       background-color: orange;
     }
+
+
+   img{
+    width: 20cm ;
+    height: 10cm;
+    text-align:left;
+    display:flex;
+   }
+   
