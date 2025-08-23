@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (usuario) {
       emailInput.value = usuario.email;
       claveInput.value = usuario.clave;
-      rememberMe.checked = true;
+      rememberMe.checked = usuario.fromLocalStorage; // Only check if from localStorage;
     }
   });
 
@@ -40,13 +40,15 @@ loginForm.addEventListener("submit", function(event) {
 
 
     if (rememberMe.checked){
-        setUsuario(email,clave);
+        setUsuario(email, clave, "localStorage");
+        sessionStorage.removeItem("usuario"); // Limpia sessionStorage si existía
         const usuario = getUsuario();
         //console.log que se muestra rápido para verificar que se haya guardado bien
         console.log(`Se guardó correctamente al usuario: ${usuario.email}, ${usuario.clave}`); 
     }
     else{
-        localStorage.removeItem("usuario"); //si no se marcó la opción no hay necesidad de guardar al usuario
+      setUsuario(email, clave, "sessionStorage");
+        localStorage.removeItem("usuario"); //si no se marcó la opción no hay necesidad de guardar al usuario// Limpia localStorage si existía
     }
 
     window.location.href = "index.html"; //redirige a la página principal
@@ -55,26 +57,36 @@ loginForm.addEventListener("submit", function(event) {
     
  //creamos una instancia de Usuario
 
-    function setUsuario(email,clave){
+    function setUsuario(email,clave, storageType = "localStorage"){
         //creamos un nuevo usuario
         const usuario = new Usuario(email,clave);
         //guardamos el usuario en localStorage FUNCIONA
+        if (storageType === "localStorage") {
         localStorage.setItem("usuario", JSON.stringify(usuario));
+    } else {
+        sessionStorage.setItem("usuario", JSON.stringify(usuario));
+    }
     }
     
     //obtenemos el usuario del localStorage por si lo preciso
     function getUsuario(){
-        const data = localStorage.getItem("usuario");
+        let data = localStorage.getItem("usuario");
         if(data!==null){
         const usuario = new Usuario("","");
         usuario.email=JSON.parse(data).email;
         usuario.clave=JSON.parse(data).clave;
+        usuario.fromLocalStorage = true; // Indica que viene de localStorage
         return usuario;
         }
-        else{
-            console.log("No hay usuario guardado");
-            return null;
-        }
+        data = sessionStorage.getItem("usuario");
+    if (data !== null) {
+        const usuario = new Usuario("", "");
+        usuario.email = JSON.parse(data).email;
+        usuario.clave = JSON.parse(data).clave;
+        usuario.fromSessionStorage = true; // Indica que viene de sessionStorage
+        return usuario;
+    }
+    return null;
     }
 
 
