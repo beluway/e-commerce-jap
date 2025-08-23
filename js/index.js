@@ -13,10 +13,13 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-     
-     const data = localStorage.getItem("usuario");
-        if(data==null){
+document.addEventListener("DOMContentLoaded", function () { 
+    //redirige a login si no hay usuario en localStorage ni en sessionStorage 
+     let data = localStorage.getItem("usuario");
+    if (data === null) {
+        data = sessionStorage.getItem("usuario");
+        if (data === null) {
             window.location.href = "login.html";
         }
+    }
     });
