@@ -104,3 +104,9 @@ button {
     margin:20px 5px 0px 0px;
 }
 
+@media(max-width:320px){
+    body{
+        background-color: #1C546F;
+    }
+}
+
