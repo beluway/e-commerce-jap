@@ -1,5 +1,4 @@
 
-
 #loginForm{
     display: flex;
     flex-direction: column;
@@ -104,16 +103,68 @@ button {
     margin:20px 5px 0px 0px;
 }
 
-@media(max-width:320px){
+@media screen and (min-width:320px){
     body{
         background-color: #1C546F;
-        background-image:url(/img/Grupo\ 4\ \(1\).png);
+        background-image:url(/img/grupo-4.png);
     }
     footer{
-        background-color: aliceblue;
+        background-color: rgb(252, 252, 252);
         background-size: 100px;
-        width: 100vh;
+        width: 100%;
+        display: flexbox;
+        flex-wrap: wrap;
+        margin-top: 10px;
 
     }
+
+    /*celulares chicos (mínimo 320px) */
+@media screen and (min-width:320px) and (max-width: 480px) {
+  #loginForm {
+    width: 90%;   /*en lugar medidas absolutas */
+    height: auto; /*que crezca según el contenido*/
+    padding: 15px;
+  }
+
+  input#email,
+  input#clave,
+  .password-container {
+    width: 100%;  /* que se adapte al ancho del form*/
+  }
+
+  button {
+    align-self: center; /*centrar el botón en cel*/
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/*tablets (mínimo 768px) */
+@media screen and (min-width: 768px) and (max-width: 1365px) {
+  #loginForm {
+    width: 70%; /*más ancho que en cel, pero no fijo*/
+  }
+
+  input#email,
+  input#clave,
+  .password-container {
+    width: 100%;
+  }
+}
+
+/*estándar (mínimo 1366px) */
+@media screen and (min-width: 1366px) {
+  #loginForm {
+    width: 400px;  /*vuelve al tamaño original*/
+    height: 380px;
+  }
+
+  input#email,
+  input#clave,
+  .password-container {
+    width: 350px; /*vuelve al tamaño original*/
+  }
+}
+
 }
 

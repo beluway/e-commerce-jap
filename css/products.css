@@ -41,11 +41,71 @@
       background-color: orange;
     }
 
-
    img{
     width: 20cm ;
     height: 10cm;
     text-align:left;
     display:flex;
    }
+
+   /*celulares chicos (≥320px y hasta 767px) */
+@media screen and (max-width: 767px) {
+  .buscador {
+    flex-direction: column; /* buscador en columna */
+    gap: 10px;
+    margin: 15px auto;
+  }
+
+  .buscador input {
+    width: 90%;  /* ocupa casi todo el ancho */
+    font-size: 14px;
+  }
+
+  .buscador button {
+    border-radius: 10px; /* más cómodo en cel porque se ensancha*/
+    padding: 10px 15px;
+  }
+
+  table.table {
+    font-size: 12px;
+    display: block;
+    overflow-x: auto; /* scroll horizontal si se desborda */
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/*tablets (≥768px y hasta 1365px) */
+@media screen and (min-width: 768px) and (max-width: 1365px) {
+  .buscador input {
+    width: 70%; /* más ancho que en cel pero no fijo */
+    font-size: 16px;
+  }
+
+  table.table {
+    font-size: 14px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/*estándar (≥1366px) */
+@media screen and (min-width: 1366px) {
+  .buscador input {
+    width: 900px; /* tu valor original */
+    font-size: 16px;
+  }
+
+  img {
+    width: 20cm;  /* tu valor original */
+    height: 10cm;
+  }
+}
+
         
