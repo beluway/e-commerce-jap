@@ -1,111 +1,163 @@
 
  
 .buscador button {
-      background-color: rgb(224, 169, 68);
-      border: none;
-      border-radius: 50%;
-      padding: 8px;
-      cursor: pointer;
-    }
-    .buscador {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      margin-top: 20px;
-      width: 100%;
+  background-color: rgb(224, 169, 68);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+}
+.buscador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
       
-    }
+}
 
-    .buscador input {
-      padding: 5px 10px;
-      border-radius: 100px;
-      border: 1px solid #aaa;
-      width: 300px;
-      font-size: 16px;
-      background-color:  rgb(224, 169, 68);
-      width: 900px;
-      align-items: center;
-    }
+.buscador input {
+  padding: 5px 10px;
+  border-radius: 100px;
+  border: 1px solid #aaa;
+  font-size: 16px;
+  background-color:  rgb(224, 169, 68);
+  width: 800px;
+  align-items: center;
+}
 
-    .encabezado {
+.encabezado {
 
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-      border-bottom: 1px solid  rgb(224, 169, 68);
-    }
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-bottom: 1px solid  rgb(224, 169, 68);
+}
 
 
-    .titulo {
-      background-color: orange;
-    }
+.titulo {
+  background-color: orange;
+}
 
-   img{
-    width: 20cm ;
-    height: 10cm;
-    text-align:left;
+
+
+
+div.table{
+  display: flex;
+  justify-content: center;
+}
+table{
+  margin-top:2rem;
+  width:100%;
+  max-width: 1366px;
+}
+thead{
+  border-bottom:none;
+}
+tbody{
+  border-top:#f57e0e 5px solid;
+}
+tr.productos{
+  border:0;
+}
+th span{
+  background-color: #f57e0e;
+  padding: 6px 12px 6px 12px; /* less bottom padding */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: inline-block;
+  line-height: 1;
+  margin: 0;
+}
+th.sold{
+  width:72px;
+}
+th.price{
+  width:94px;
+}
+td{
+  text-align: center;
+}
+td.name{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight:bold;
+  font-size:20px;
+}
+img{
+  width:80%;
+  max-width:385px;
+  min-width:200px;
+}
+td.price, td.sold{
+  vertical-align: middle;
+}
+td.description{
+  vertical-align: middle;
+  text-align:left;
+  width: 269px;
+}
+.productos th{
+text-align: center;
+padding:0;
+}
+th.products{
+  width: 25vw;
+  max-width:577px;
+}
+
+
+@media screen and (min-width:1366px){
+  td.name{
+  font-size:24px;
+  }
+  img{
+    width:100%;
+    max-width:385px;
+  }
+}
+@media (max-width:768px){
+  td.name{
+    font-size:16px;
+  }
+  img{
+    width:80%;
+    max-width:300px;
+  }
+}
+
+@media screen and (max-width:700px){
+  .buscador input{
+    width:80%;
+  }
+
+  th.description, th.sold, th.price{
+    display:none;
+    width:100%;
+  }
+  tbody{
+    display:block;
+    width:100%;
+  }
+  td{
+    display:block;
+    width:100vw;
+  }
+  td.name{
+    font-size:16px;
+  }
+  td.description{
     display:flex;
-   }
-
-   /*celulares chicos (≥320px y hasta 767px) */
-@media screen and (max-width: 767px) {
-  .buscador {
-    flex-direction: column; /* buscador en columna */
-    gap: 10px;
-    margin: 15px auto;
+    width:100%;
+    justify-content: center;
+    text-align:center;
   }
-
-  .buscador input {
-    width: 90%;  /* ocupa casi todo el ancho */
-    font-size: 14px;
+  .description span{
+    max-width:300px;
   }
-
-  .buscador button {
-    border-radius: 10px; /* más cómodo en cel porque se ensancha*/
-    padding: 10px 15px;
-  }
-
-  table.table {
-    font-size: 12px;
-    display: block;
-    overflow-x: auto; /* scroll horizontal si se desborda */
-  }
-
-  img {
-    width: 100%;
-    height: auto;
+  td.sold::before{
+    content:"Vendidos: ";
   }
 }
-
-/*tablets (≥768px y hasta 1365px) */
-@media screen and (min-width: 768px) and (max-width: 1365px) {
-  .buscador input {
-    width: 70%; /* más ancho que en cel pero no fijo */
-    font-size: 16px;
-  }
-
-  table.table {
-    font-size: 14px;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-/*estándar (≥1366px) */
-@media screen and (min-width: 1366px) {
-  .buscador input {
-    width: 900px; /* tu valor original */
-    font-size: 16px;
-  }
-
-  img {
-    width: 20cm;  /* tu valor original */
-    height: 10cm;
-  }
-}
-
-        

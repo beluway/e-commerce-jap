@@ -8,10 +8,10 @@ function showProductsList(array){ //crea una fila por cada producto.
         let product = array[i];
         htmlContentToAppend += 
         `<tr class="products">
-            <td class="name" scope="row">${product.name}<img src="${product.image}"></td>
-            <td class="description">${product.description}</td>
+            <td class="name" scope="row">${product.name}<br><img src="${product.image}"></td>
+            <td class="description"><span>${product.description}</span></td>
             <td class="sold">${product.soldCount}</td>
-            <td class="price">${product.currency} ${product.cost} </td>
+            <td class="price">${product.currency}${product.cost}</td>
          </tr>`;
     }
     document.getElementById("products-list").innerHTML = htmlContentToAppend;
