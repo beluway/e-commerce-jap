@@ -1,3 +1,5 @@
+import { getUsuario } from "./clases/Usuario.js";
+
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
@@ -22,4 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "login.html";
         }
     }
+
+    const usuario = getUsuario();
+    const userNameElement = document.getElementById("userName");
+
+    userNameElement.textContent = usuario.email;
     });
