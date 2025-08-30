@@ -1,3 +1,4 @@
+import { getUsuario } from "./clases/Usuario.js";
 
 let productsArray = [];
 
@@ -25,4 +26,8 @@ document.addEventListener("DOMContentLoaded", function(e){
             showProductsList(productsArray);
         }
     })
+    const usuario = getUsuario();
+    const userNameElement = document.getElementById("userName");
+
+    userNameElement.textContent = usuario.email;
 });
