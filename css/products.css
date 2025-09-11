@@ -27,6 +27,30 @@
   align-items: center;
 }
 
+.orden {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bolder;
+  cursor: pointer; 
+  font-size: small;
+  margin-right: 15%;
+  margin-top: 1%;
+  gap: 1%;
+}
+
+.filtros {
+  display: flex;
+  justify-items: flex-end;
+  font-size: small;
+  margin-left: 58%;
+  margin-top: 1%;
+  gap: 1%;
+}
+
+.btn-orden {
+  border: none;
+
+}
 .encabezado {
 
   justify-content: space-between;
@@ -55,13 +79,13 @@ thead{
   border-bottom:none;
 }
 tbody{
-  border-top:#f57e0e 5px solid;
+  border-top: rgb(224, 169, 68) 5px solid;
 }
 tr.productos{
   border:0;
 }
 th span{
-  background-color: #f57e0e;
+  background-color: rgb(224, 169, 68);
   padding: 6px 12px 6px 12px; /* less bottom padding */
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -160,3 +184,4 @@ th.products{
     content:"Vendidos: ";
   }
 }
+

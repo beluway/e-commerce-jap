@@ -11,6 +11,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/products.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -47,8 +48,21 @@
       <button>🔍</button>
     </div>
 
+    <div class="orden">
+      
+      <button class="btn-orden">↑<span class="material-icons filtro" style="font-size: small;" id="asc" >sort</span>$</button>
+      <button class="btn-orden">↓<span class="material-icons filtro" style="font-size: small;" id="desc" >sort</span>$</button>
+      <button class="btn-orden">↓<span class="material-icons filtro" style="font-size: small;" id="rel">sort</span>Rel</button>
+      <i class="fa-solid fa-house"></i>
+    </div>
+    <div class="filtros"> 
+      <label for="rango">Precio</label>
+      <input type="number" id="min" placeholder="mínimo">
+      <input type="number" id="min" placeholder="máximo">
+      <button id="filtrar" class="btn-orden" style="background-color: rgb(245, 191, 122);">Filtrar</button>
+      <button id="limpiar" class="btn-orden" style="color: blue;">Limpiar</button> 
+    </div>
   </main>
-
     <!--tabla de bootstrap-->
 <div class="table">
 <table class="table table-hover table-borderless">
