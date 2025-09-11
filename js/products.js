@@ -24,9 +24,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     //obtengo el id de la categoría actual del localStorage
     let catID = localStorage.getItem('catID');
 
-     PRODUCTS_URL+catID+EXT_TYPE
+    //idea 1: `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`
+     
     //la incluyo en la URL del Json de forma dinámica con un string literal
-    getJSONData(`https://japceibal.github.io/emercado-api/cats_products/${catID}.json`)
+    getJSONData(PRODUCTS_URL+catID+EXT_TYPE)
     .then(function(resultObj){
         if (resultObj.status === "ok"){
             productsArray = resultObj.data.products;
@@ -117,4 +118,4 @@ function sortCat(criteria){
         sortCat("rel");
     });
 
-    
+
