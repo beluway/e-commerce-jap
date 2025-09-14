@@ -28,14 +28,6 @@ function updateTotalCosts(){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    //tampoco dejo entrar si no está logueado
-        let data = localStorage.getItem("usuario");
-    if (data === null) {
-        data = sessionStorage.getItem("usuario");
-        if (data === null) {
-            window.location.href = "login.html";
-        }
-    }
     document.getElementById("productCountInput").addEventListener("change", function(){
         productCount = this.value;
         updateTotalCosts();
