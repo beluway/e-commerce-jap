@@ -27,6 +27,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const usuario = getUsuario();
     const userNameElement = document.getElementById("userName");
-
     userNameElement.textContent = usuario.email;
     });

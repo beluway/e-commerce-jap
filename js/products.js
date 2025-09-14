@@ -7,7 +7,7 @@ function showProductsList(array){ //crea una fila por cada producto.
     for(let i = 0; i < array.length; i++){
         let product = array[i];
         htmlContentToAppend += 
-        `<tr class="products">
+        `<tr class="products" data-id="${product.id}">
             <td class="name" scope="row">${product.name}<br><img src="${product.image}"></td>
             <td class="description"><span>${product.description}</span></td>
             <td class="sold">${product.soldCount}</td>
@@ -16,6 +16,18 @@ function showProductsList(array){ //crea una fila por cada producto.
     }
     
     document.getElementById("products-list").innerHTML = htmlContentToAppend;
+    clickProduct();
+}
+
+function clickProduct() {
+  const products = document.querySelectorAll(".products");
+  products.forEach(product => {
+    product.addEventListener("click", () => {
+      const id = product.getAttribute("data-id");
+      localStorage.setItem("productID", id);
+      window.location = "product-info.html";
+    });
+  });
 }
 
 document.addEventListener("DOMContentLoaded", function(e){

@@ -1,0 +1,28 @@
+.container {
+    margin-top: 3%;
+    align-items: baseline;
+    
+}
+.titulo {
+    font-weight: bold;
+}
+
+.categoria { 
+    display: flex;
+    margin-bottom: 1%;
+
+}
+
+#imagenes img {
+ width: 100%;
+ height: auto;
+ margin:0 !important;
+ }
+
+#imagenes {
+    margin-top: 5%;
+}
+
+.btn {
+    margin-top: 1%;
+}

@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/product-info.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,17 +32,45 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" id="userName" href=""></a>
           </li>
+          
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+<!-- ACA INTENTE HACERLO A MANO  
+   <div class="container"> 
+    <div class="titulo-subt">
+    <h2 class="titulo" id="nombre"> </h2> 
+    <span class="categoria" id="categoria"> </span>
     </div>
+    <p id="descripcion"> </p>
+    <p id="ventas"> </p>
+    <p id="precio"> </p>  
+
+    <div class="imagenes" id="imagenes"></div> -->
+
+
+<!-- ACA RECURRÍ A BOOTSTRAP. NO SE POR QUÉ MODIFICA EL ENCABEZADO!!  -->
+  <div class="container mt-4">
+    <div class="row mb-3">
+      <div class="d-flex align-items-center mb-2">
+        <h4 id="nombre" class="mt-3 me-3 fs-2 fw-bold" ></h4> 
+        <span class="badge bg-warning mt-3 ms-3 text-dark fs-6" id="categoria"></span>
+        </div>
+        <div><textarea class="form-control mb-2 mt-4" rows="2" id="descripcion"></textarea>
+
+        <span id="ventas" class="me-5"></span>
+        <span id="precio" class="me-5"></span>
+        <button class="btn btn-warning fw-bold btn-small">Comprar</button></div>
+        
+        
+        <div class= "row" id="imagenes"></div>
+
+    </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -61,7 +90,7 @@
   </div>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
+  <script src="js/product-info.js" type="module"></script>
 </body>
 
 </html>
