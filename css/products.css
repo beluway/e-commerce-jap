@@ -185,3 +185,6 @@ th.products{
   }
 }
 
+.oculto {
+  display: none;
+}
