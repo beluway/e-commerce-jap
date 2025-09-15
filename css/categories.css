@@ -1,0 +1,10 @@
+nav{
+    width:100%;
+}
+
+@media (max-width:600px){
+    div.category{
+        display:flex;
+        flex-direction:column;
+    }
+}
