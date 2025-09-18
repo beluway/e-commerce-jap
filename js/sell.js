@@ -9,6 +9,15 @@ let PESO_SYMBOL = "UYU ";
 let PERCENTAGE_SYMBOL = '%';
 let MSG = "FUNCIONALIDAD NO IMPLEMENTADA";
 
+import {getUsuario} from "./clases/Usuario.js"
+
+document.addEventListener("DOMContentLoaded", () => {
+  const usuario = getUsuario();
+  const userNameElement = document.getElementById("userName");
+  
+  userNameElement.textContent = usuario.email;
+})
+
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
     let unitProductCostHTML = document.getElementById("productCostText");
@@ -28,14 +37,6 @@ function updateTotalCosts(){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    //tampoco dejo entrar si no está logueado
-        let data = localStorage.getItem("usuario");
-    if (data === null) {
-        data = sessionStorage.getItem("usuario");
-        if (data === null) {
-            window.location.href = "login.html";
-        }
-    }
     document.getElementById("productCountInput").addEventListener("change", function(){
         productCount = this.value;
         updateTotalCosts();

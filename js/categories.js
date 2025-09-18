@@ -6,6 +6,7 @@ let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
 
+
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
@@ -51,16 +52,16 @@ function showCategoriesList(){
 
             htmlContentToAppend += `
             <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="${category.imgSrc}" alt="${category.description}" class="img-thumbnail">
+                <div class="category">
+                    <div class="image">
+                        <img src="${category.imgSrc}" alt="${category.description}" class="">
                     </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${category.name}</h4>
+                    <div class="text">
+                        <div class="name-count d-flex w-100 justify-content-between">
+                            <h4 class="">${category.name}</h4>
                             <small class="text-muted">${category.productCount} artículos</small>
                         </div>
-                        <p class="mb-1">${category.description}</p>
+                        <p class="">${category.description}</p>
                     </div>
                 </div>
             </div>
@@ -94,14 +95,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             showCategoriesList()
             //sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }
-        //tampoco dejo entrar si no está logueado
-        let data = localStorage.getItem("usuario");
-    if (data === null) {
-        data = sessionStorage.getItem("usuario");
-        if (data === null) {
-            window.location.href = "login.html";
-        }
-    }
         
     });
 
@@ -149,4 +142,13 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+
 });
+import {getUsuario} from "./clases/Usuario.js"
+
+document.addEventListener("DOMContentLoaded", () => {
+  const usuario = getUsuario();
+  const userNameElement = document.getElementById("userName");
+  
+  userNameElement.textContent = usuario.email;
+})

@@ -41,6 +41,18 @@ function showProductsList(array) {
      </tr>`;
     }
     document.getElementById("products-list").innerHTML = htmlContentToAppend;
+    clickProduct();
+}
+
+function clickProduct() {
+  const products = document.querySelectorAll(".products");
+  products.forEach(product => {
+    product.addEventListener("click", () => {
+      const id = product.getAttribute("data-id");
+      localStorage.setItem("productID", id);
+      window.location = "product-info.html";
+    });
+  });
 }
 
 //obtengo los elementos del DOM
