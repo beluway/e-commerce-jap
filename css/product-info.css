@@ -1,28 +1,57 @@
 .container {
     margin-top: 3%;
     align-items: baseline;
-    
-}
-.titulo {
-    font-weight: bold;
-}
-
-.categoria { 
-    display: flex;
-    margin-bottom: 1%;
-
 }
 
 #imagenes img {
- width: 100%;
+ width: 95%;
  height: auto;
  margin:0 !important;
  }
 
 #imagenes {
     margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
 }
 
 .btn {
     margin-top: 1%;
+}
+
+#datos { 
+    font-size: larger !important;
+}
+
+@media screen and (max-width: 800px) {
+    #imagenes {
+        grid-template-columns: repeat(2, 1fr) !important;
+        row-gap: 4% !important;
+    }
+
+    #datos{
+        font-size: medium !important;
+        margin-top: 5% !important;
+    }
+    #descripcion {
+        font-size: medium !important;
+        margin-left: 2%;
+        margin-right: 2% !important;
+    }
+    .btn {
+        font-size: small !important;
+    }
+    .form-control {
+        max-width: 96% !important;
+    }
+}
+
+@media screen and (max-width: 400px ) {
+    #titulos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
