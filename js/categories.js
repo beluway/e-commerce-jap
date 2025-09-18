@@ -144,3 +144,11 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
 });
+import {getUsuario} from "./clases/Usuario.js"
+
+document.addEventListener("DOMContentLoaded", () => {
+  const usuario = getUsuario();
+  const userNameElement = document.getElementById("userName");
+  
+  userNameElement.textContent = usuario.email;
+})

@@ -9,6 +9,15 @@ let PESO_SYMBOL = "UYU ";
 let PERCENTAGE_SYMBOL = '%';
 let MSG = "FUNCIONALIDAD NO IMPLEMENTADA";
 
+import {getUsuario} from "./clases/Usuario.js"
+
+document.addEventListener("DOMContentLoaded", () => {
+  const usuario = getUsuario();
+  const userNameElement = document.getElementById("userName");
+  
+  userNameElement.textContent = usuario.email;
+})
+
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
     let unitProductCostHTML = document.getElementById("productCostText");
