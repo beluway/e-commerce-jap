@@ -124,7 +124,24 @@ function filtrarPorPrecio() {
     });
 }
 
+const filtro1 = document.getElementById("min");
+const filtro2 = document.getElementById("max");
+const botonLimpiar = document.getElementById("limpiar");
 
+botonLimpiar.addEventListener("click", limpiarFiltro);
+
+function limpiarFiltro() {
+    const productos = document.querySelectorAll('.producto'); 
+
+    productos.forEach(producto => {
+        producto.classList.remove('oculto'); 
+    });
+
+filtro1.value = '';
+filtro2.value = '';
+
+    console.log("filtro limpiado");
+}
 
 
 
