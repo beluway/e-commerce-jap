@@ -130,6 +130,9 @@ th.products{
   width: 25vw;
   max-width:577px;
 }
+table:hover{
+  cursor: pointer!important;
+}
 
 
 @media screen and (min-width:1366px){
