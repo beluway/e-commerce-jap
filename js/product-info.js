@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       product.images.forEach(imgUrl => {
         const img = document.createElement("div");
-        
-        img.className = "col-3 text-center mb-3"
+
 
         img.innerHTML = `<img src="${imgUrl}" class="img-fluid">`;
         galeria.appendChild(img);
@@ -29,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
        
       }
     });
+    
 
 });
 
