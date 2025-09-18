@@ -38,7 +38,7 @@ function sortCategories(criteria, array){
 
 function setCatID(id) {
     localStorage.setItem("catID", id);
-    window.location = "products.html"
+    window.location = "products.html";
 }
 
 function showCategoriesList(){
@@ -144,11 +144,4 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
 });
-import {getUsuario} from "./clases/Usuario.js"
 
-document.addEventListener("DOMContentLoaded", () => {
-  const usuario = getUsuario();
-  const userNameElement = document.getElementById("userName");
-  
-  userNameElement.textContent = usuario.email;
-})

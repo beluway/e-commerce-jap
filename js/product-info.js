@@ -4,7 +4,7 @@ import {getUsuario} from "./clases/Usuario.js"
 document.addEventListener("DOMContentLoaded", () => {
   const productID = localStorage.getItem("productID");
 
-  getJSONData(`https://japceibal.github.io/emercado-api/products/${productID}.json`)
+  getJSONData(PRODUCT_INFO_URL+productID+EXT_TYPE)
     .then(resultObj => {
       if (resultObj.status === "ok") {
         const product = resultObj.data;
