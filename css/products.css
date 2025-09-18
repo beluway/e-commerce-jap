@@ -188,3 +188,6 @@ table:hover{
   }
 }
 
+.oculto {
+  display: none;
+}
