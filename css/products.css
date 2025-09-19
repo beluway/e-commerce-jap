@@ -144,13 +144,14 @@ table:hover{
     max-width:385px;
   }
 }
-@media (max-width:768px){
-  td.name{
-    font-size:16px;
+@media screen and (min-width: 700px) and (max-width:1366px){
+  .filtros {
+    display: block;
+    
   }
-  img{
-    width:80%;
-    max-width:300px;
+  #precio{
+    display: flex;
+    margin-right: 88%;
   }
 }
 
@@ -185,6 +186,25 @@ table:hover{
   }
   td.sold::before{
     content:"Vendidos: ";
+  }
+  .filtros {
+    display: block;
+    margin-left: 0;
+  }
+  #filtrar {
+    margin-left: 67%;
+  }
+  #precio {
+    display: flex;
+    justify-content: center;
+    margin-right: 88%;
+  }
+    td.name{
+    font-size:16px;
+  }
+  img{
+    width:80%;
+    max-width:300px;
   }
 }
 
