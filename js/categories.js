@@ -143,5 +143,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 
+    const data = localStorage.getItem(`usuario`);
+    const usu = JSON.parse(data);
+    document.getElementById("userName").innerHTML = usu.email;
 });
 
