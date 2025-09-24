@@ -1,5 +1,7 @@
 import {getUsuario} from "./clases/Usuario.js"
 
+const starBorder = `<span class="material-icons">star_border</span>`;
+const star = `<span class="material-icons">star</span>`;
 
 document.addEventListener("DOMContentLoaded", () => {
   const productID = localStorage.getItem("productID");
@@ -29,7 +31,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
     
-
+//Seccion de comentarios
+  getJSONData(PRODUCT_INFO_COMMENTS_URL+productID+EXT_TYPE)
+  .then(resultObj =>{
+    if (resultObj.status === "ok") {
+      const comentarios = resultObj.data;
+      const container = document.getElementById("comentarios");
+      let htmlContentToAppend = "";
+      
+      comentarios.forEach(comentario =>{
+      htmlContentToAppend +=
+      `<div class="userRating"><span class="userInfo">${comentario.user} <span id="dateTime">${comentario.dateTime}</span></span><span class="userStars">${star.repeat(comentario.score)}${starBorder.repeat(5-comentario.score)}</span></div>
+      <div class="userComment">${comentario.description}</div>`;
+      })
+      container.innerHTML = htmlContentToAppend;
+    }
+  })
 });
 
 document.addEventListener("DOMContentLoaded", () => {
