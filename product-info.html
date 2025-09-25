@@ -58,15 +58,32 @@
         <div id="imagenes"></div>
     </div>
     <button class="btn btn-warning fw-bold btn-small me-auto" id="comprar">Comprar</button>
-    <a href="products.html" class=" text-dark fs-6" id="volverListado">Volver al listado</a>
   </div>
   <!--Seccion de comentarios-->
   <section class="comments">
     <h3>Comentarios</h3>
     <div id="comentarios">
-
+    </div>
+  <!--Div agregar comentarios-->
+    <div class="add-comment">
+      <h3>Agregar Comentario</h3>
+      <form action="" id="send-comment">
+        <div class="left-column"> <!--para alinear todo menos textarea-->
+        <label for="rate">Calificación</label>
+        <select name="rate" id="rate">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <input type="submit" name="send" id="send" value="Enviar">
+        </div>
+        <textarea name="area-comment" id="area-comment" placeholder="Escriba aquí sus comentarios"></textarea>
+      </form>
     </div>
   </section>
+  <a href="products.html" class=" text-dark fs-6" id="volverListado">Volver al listado</a>
   </main>
   <footer class="text-muted">
     <div class="container">
