@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function mostrarProductosRelacionados(relatedArray) {
   const container = document.getElementById("related-container");
   container.innerHTML = ""; 
+
   relatedArray.forEach(producto => {
     const div = document.createElement("div");
     div.classList.add("card");
