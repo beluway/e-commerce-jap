@@ -33,6 +33,109 @@
     font-size: larger !important;
 }
 
+/*Seccion de comentarios*/
+section.comments {
+    display : flex;
+    flex-direction: column;
+    align-items:flex-end;
+    margin-right: 5%;
+}
+section.comments h3 {
+    margin-right: 10px;
+}
+div#comentarios {
+    border-top: 2px solid orange;
+    border-bottom:2px solid orange;
+    max-width:70%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+div.userRating {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 2%;
+}
+span.userInfo {
+    font-weight:bold;
+}
+span#dateTime {
+    font-weight: normal;
+    opacity: 0.5;
+}
+span.userStars {
+white-space: nowrap;
+}
+/*Agregar comentario*/
+.add-comment {
+  max-width: 650px;
+  font-family: Arial, sans-serif;
+}
+
+.add-comment h3 {
+    display: flex;
+    justify-content: right;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+/* Usamos grid para dos columnas */
+#send-comment {
+  display: grid;
+  grid-template-columns: 100px 1fr; /* izquierda fija, derecha flexible */
+  gap: 15px;
+}
+
+/* Columna izquierda en vertical */
+#send-comment label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra vertical respecto al textarea */
+  align-items: flex-start;
+}
+
+#rate {
+  display: block;
+  margin-bottom: 10px;
+  padding: 4px;
+  width: 60px;
+}
+
+/* Botón naranja */
+#send {
+  display: block;
+  background-color: #ff9933;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+#send:hover {
+  background-color: #e68a00;
+}
+
+/* Textarea derecha */
+#area-comment {
+  min-width: 280px; /* aseguramos que quede grande */
+  min-height: 120%;
+  padding: 8px;
+  font-size: 14px;
+}
+
+
+
+
+
 @media screen and (max-width: 800px) {
     #imagenes {
         grid-template-columns: repeat(2, 1fr) !important;
