@@ -16,13 +16,6 @@
     
 }
 
-#comprar {
-    display: inline !important; 
-    justify-content: flex-end !important;
-    margin-top: 1%;
-    margin-left: 83%;
-    
-}
 #volverListado{
     display: flex !important;
     text-align: center !important;
@@ -31,6 +24,7 @@
 
 #datos { 
     font-size: larger !important;
+    align-items: center;
 }
 
 /*Seccion de comentarios*/
@@ -130,21 +124,42 @@ white-space: nowrap;
   min-height: 120%;
   padding: 8px;
   font-size: 14px;
+  
+}
+#comentarios-relacionados {
+    display: flex;
+    align-items: flex-start;
+    gap: 5%;
 }
 
 
+@media screen and (min-width: 1200px) {
+    #related-container, .comments {
+        justify-items: center !important;
+        gap: 10%;
+    }
+
+    #productos-relacionados {
+        margin-left: 10%;
+    }
+    #volverListado{
+        margin-top: 3%;
+    }
 
 
+}
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 400px) and (max-width: 800px) {
     #imagenes {
         grid-template-columns: repeat(2, 1fr) !important;
         row-gap: 4% !important;
     }
-
     #datos{
+        display: flex;
+        align-items: center;
         font-size: medium !important;
-        margin-top: 5% !important;
+        margin-top: 0% !important;
+        align-items: center !important;
     }
     #descripcion {
         font-size: medium !important;
@@ -156,20 +171,98 @@ white-space: nowrap;
     }
     .form-control {
         max-width: 96% !important;
+    }   
+
+    .add-comment {
+        margin-top: 3%;
     }
+    
+    section.comments {
+    display : flex;
+    flex-direction: column;
+    align-items:center !important;
+    margin-right: 5%;}
+   
+    #productos-relacionados {
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+       margin-left: 8%;
+    }
+    #comentarios-relacionados {
+        margin-top: -5% !important;
+    }
+
+
+    #volverListado{
+        margin-top: 7%;
+    }
+    
 }
 
 @media screen and (max-width: 400px ) {
+    #imagenes {
+        grid-template-columns: repeat(2, 1fr) !important;
+        row-gap: 4% !important;
+    }
     #titulos {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    #comprar{
-        display: inline !important; 
-    justify-content: flex-end !important;
-    margin-top: 1%;
-    margin-left: 70%;
+    #datos{
+        display: flex;
+        align-items: center;
+        font-size: small !important;
+        margin-top: 0% !important;
+        align-items: center !important;
     }
+    #comprar{
+    font-size: small !important;
+    }
+
+    #comentarios-relacionados {
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+        gap: 5%;
+    }
+
+    #productos-relacionados {
+        display:flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        margin-left: 15%;
+       
+    }
+    section.comments {
+    display : flex;
+    flex-direction: column;
+    align-items:center !important;
+    margin-right: 5%;
+}
+#send-comment {
+    display: flex;
+    flex-direction: column;  
+    margin-top: 5%;
+}
+
+.right-column, 
+  .left-column {
+    width: 100%;
+}
+.right-column {
+    order:1;
+}
+
+.left-column {
+    order:2;
+    align-items: center;
+}
+
+#volverListado{
+        margin-top: 5%;
+        align-items: center;
+}
 }
