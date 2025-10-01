@@ -1,30 +1,32 @@
 import {getUsuario} from "./clases/Usuario.js"
 
+//obtengo los elementos relacionados con las estrellas
 const starBorder = `<span class="material-icons">star_border</span>`;
 const star = `<span class="material-icons">star</span>`;
 
+//obtengo el ID del producto seleccionado que se guardó en el LocalStorage
 const productID = localStorage.getItem("productID");
 
+//evento de carga del html
 document.addEventListener("DOMContentLoaded", () => {
 
-    const usuario = getUsuario();
-  const userNameElement = document.getElementById("userName");
-  userNameElement.textContent = usuario.email;
+//obtengo el usuario logueado para mostrarlo en el nav
+const usuario = getUsuario();
+const userNameElement = document.getElementById("userName");
+userNameElement.textContent = usuario.email;
 
- 
+ //función para cargar la info del producto seleccionado
   getJSONData(PRODUCT_INFO_URL + productID + EXT_TYPE)
     .then(resultObj => {
       if (resultObj.status === "ok") {
         const product = resultObj.data;
         const galeria = document.getElementById("imagenes");
-
         
         document.getElementById("nombre").innerText = product.name;
         document.getElementById("descripcion").innerText = product.description;
         document.getElementById("precio").innerText = `Precio: ${product.currency} ${product.cost}`;
         document.getElementById("ventas").innerText = `Cantidad de vendidos: ${product.soldCount}`;
         document.getElementById("categoria").innerText = `Categoría: ${product.category}`;  
-
       
         product.images.forEach(imgUrl => {
           const img = document.createElement("div");
@@ -32,12 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
           galeria.appendChild(img);
         });
 
-        
+        //llamo a función que muestra los related products de ese mismo producto
         mostrarProductosRelacionados(product.relatedProducts);
       }
     });
-    
-//Seccion de comentarios 
+  
+//-------------SECCIÓN DE COMENTARIOS-------------
+
+//función que carga los comentarios si ya no los tenía guardados
 if(loadComentarios ==null){
   getJSONData(PRODUCT_INFO_COMMENTS_URL+productID+EXT_TYPE)
   .then(resultObj =>{
@@ -54,10 +58,11 @@ if(loadComentarios ==null){
       container.innerHTML = htmlContentToAppend;
     }
   })}
-});
 
+});//------> FIN DEL CONTENTLOADED
 
-function mostrarProductosRelacionados(relatedArray) {
+//-------------PRODUCTOS RELACIONADOS-------------
+    function mostrarProductosRelacionados(relatedArray) {
   const container = document.getElementById("related-container");
   container.innerHTML = ""; 
 
@@ -88,7 +93,7 @@ const container = document.getElementById("comentarios");
 let comentarios = []; // todos los comentarios (API + agregados)
 
 // Genera el HTML de un comentario
-function renderComentario(comentario) {
+function mostrarComentario(comentario) {
   return `
     <div class="userRating">
       <span class="userInfo">${comentario.user} 
@@ -103,38 +108,38 @@ function renderComentario(comentario) {
 }
 
 // Genera el HTML de toda la lista
-function renderComentarios(lista) {
+function mostrarComentarios(lista) {
   let htmlContentToAppend = "";
   lista.forEach(c => {
-    htmlContentToAppend += renderComentario(c);
+    htmlContentToAppend += mostrarComentario(c);
   });
   container.innerHTML = htmlContentToAppend;
 }
 
 // Guardar en localStorage
-function saveComentarios() {
+function guardarComentarios() {
   localStorage.setItem("comentarios_" + productID, JSON.stringify(comentarios));
 }
 
 // Cargar desde localStorage
-function loadComentarios() {
+function cargarComentarios() {
   const stored = localStorage.getItem("comentarios_" + productID);
   return stored ? JSON.parse(stored) : null;
 }
 //2
 // Intentamos cargar desde localStorage
-const storedComentarios = loadComentarios();
+const storedComentarios = cargarComentarios();
 if (storedComentarios) {
   comentarios = storedComentarios;
-  renderComentarios(comentarios);
+  mostrarComentarios(comentarios);
 } else {
   // Si no hay nada en localStorage, pedimos a la API
   getJSONData(PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE)
     .then(resultObj => {
       if (resultObj.status === "ok") {
         comentarios = resultObj.data;
-        saveComentarios(); // guardamos por primera vez
-        renderComentarios(comentarios);
+        guardarComentarios(); // guardamos por primera vez
+        mostrarComentarios(comentarios);
       }
     });
 }
@@ -160,8 +165,8 @@ document.getElementById("send-comment").addEventListener("submit", function(e) {
   };
 
   comentarios.push(nuevoComentario); // guardamos en memoria
-  saveComentarios();                 // persistimos en localStorage
-  renderComentarios(comentarios);    // refrescamos la vista
+  guardarComentarios();                 // persistimos en localStorage
+  mostrarComentarios(comentarios);    // refrescamos la vista
   this.reset();                      // limpiamos el form
 });
 
