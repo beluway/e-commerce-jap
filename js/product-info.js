@@ -42,7 +42,7 @@ userNameElement.textContent = usuario.email;
 //-------------SECCIÓN DE COMENTARIOS-------------
 
 //función que carga los comentarios si ya no los tenía guardados
-if(loadComentarios ==null){
+if(cargarComentarios ==null){
   getJSONData(PRODUCT_INFO_COMMENTS_URL+productID+EXT_TYPE)
   .then(resultObj =>{
     if (resultObj.status === "ok") {
