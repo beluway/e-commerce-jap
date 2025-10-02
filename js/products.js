@@ -69,11 +69,11 @@ function sortCat(criteria) {
     switch (criteria) {
         case "asc":
             //de menor a mayor precio
-            arrayOrdenado.sort((a, b) => a.cost - b.cost);
+            arrayOrdenado.sort((a, b) => b.cost - a.cost);
             break;
         case "desc":
             //de mayor a menor precio
-            arrayOrdenado.sort((a, b) => b.cost - a.cost);
+            arrayOrdenado.sort((a, b) => a.cost - b.cost);
             break;
         case "rel":
             //de más cantidad de vendidos a menos
@@ -118,9 +118,17 @@ buscador.addEventListener("input", function (e) {
 const botonFiltrar = document.getElementById("filtrar")
 
 botonFiltrar.addEventListener("click", filtrarPorPrecio);
+
 function filtrarPorPrecio() {
     const min = parseFloat(document.getElementById('min').value);
     const max = parseFloat(document.getElementById('max').value);
+
+   /* if(min.value==null || max.value==null){
+        const aviso = document.getElementById('aviso');
+        aviso.innerHTML="Escriba un mínimo y un máximo para filtrar";
+        
+    }
+    else{}*/
 
     const productos = document.querySelectorAll('.producto');
 
@@ -134,6 +142,7 @@ function filtrarPorPrecio() {
             producto.classList.add('oculto');
         }
     });
+
 }
 
 const filtro1 = document.getElementById("min");
