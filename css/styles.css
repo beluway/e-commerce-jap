@@ -189,6 +189,12 @@ a.custom-card:hover {
   color: orange;
 }
 
+/*Acá va la clase de modo oscuro*/
+.darkMode{
+  background-color: rgb(26, 25, 25);
+  color: #fff;
+}
+
 @media screen and (min-width:300px) and (max-width: 600px){
   .jumbotron{
     height: auto;

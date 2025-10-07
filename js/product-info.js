@@ -118,16 +118,16 @@ function mostrarComentarios(lista) {
 
 // Guardar en localStorage
 function guardarComentarios() {
-  localStorage.setItem("comentarios_" + productID, JSON.stringify(comentarios));
+  sessionStorage.setItem("comentarios_" + productID, JSON.stringify(comentarios));
 }
 
 // Cargar desde localStorage
 function cargarComentarios() {
-  const stored = localStorage.getItem("comentarios_" + productID);
+  const stored = sessionStorage.getItem("comentarios_" + productID);
   return stored ? JSON.parse(stored) : null;
 }
 //2
-// Intentamos cargar desde localStorage
+// Intentamos cargar desde sessionStorage
 const storedComentarios = cargarComentarios();
 if (storedComentarios) {
   comentarios = storedComentarios;
@@ -169,5 +169,14 @@ document.getElementById("send-comment").addEventListener("submit", function(e) {
   mostrarComentarios(comentarios);    // refrescamos la vista
   this.reset();                      // limpiamos el form
 });
+
+//Para poner el modo oscuro
+const chkOscuro = document.getElementById('chkOscuro');
+const divFondo = document.getElementById('fondo');
+
+chkOscuro.addEventListener('change',()=>{
+divFondo.classList.toggle("darkMode",chkOscuro.checked);
+});
+
 
 
