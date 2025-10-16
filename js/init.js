@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   
   // Aplicar preferencia al cargar la página
 window.addEventListener('load', () => {
-  const modo = localStorage.getItem('modoOscuro');
+  const modo = localStorage.getItem('toggleDarkMode');
   if (modo === "true") {
     divFondo.classList.add("dark-mode");
     chkOscuro.checked = true;
