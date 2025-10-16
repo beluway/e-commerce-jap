@@ -1,9 +1,10 @@
 export class Usuario{
 
 
-    constructor (email,clave){
+    constructor (email,clave,nombre,apellido,telefono){
         this.email=email;
         this.clave=clave;
+        this.
     }
 
      toString(){
