@@ -190,10 +190,91 @@ a.custom-card:hover {
 }
 
 /*Acá va la clase de modo oscuro*/
-.darkMode{
-  background-color: rgb(26, 25, 25);
-  color: #fff;
+body.dark-mode {
+  background-color: #121212;
+  color: white;
 }
+
+#fondo.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+  margin-top: 12px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 17px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #f39821;
+}
+
+input:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+.label-text {
+  font-size: 14px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+#fondo.dark-mode #volverListado {
+  color: white !important;
+}
+/* Texto general */
+#fondo.dark-mode p,
+#fondo.dark-mode span,
+#fondo.dark-mode h1,
+#fondo.dark-mode h2,
+#fondo.dark-mode h3,
+#fondo.dark-mode h4,
+#fondo.dark-mode h5,
+#fondo.dark-mode h6,
+#fondo.dark-mode td,
+#fondo.dark-mode,#fondo.card-text,#fondo.m-3,#fondo.dark-mode a {
+  color: white !important;
+}
+#fondo.dark-mode div,#fondo.dark-mode.card,#fondo.dark-mode.btn-lg{
+  background-color: black !important;
+}
+#fondo.dark-mode,#fondo.dark-mode.album{
+  background-color: black !important;
+}
+#fondo.dark-mode,#fondo.text-muted,#fondo.dark-mode.btn{
+  background-color: black !important;
+}
+
+
 
 @media screen and (min-width:300px) and (max-width: 600px){
   .jumbotron{
@@ -211,5 +292,4 @@ a.custom-card:hover {
     padding: 2em;
   }
 }
-
 

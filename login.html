@@ -14,6 +14,7 @@
 </head>
 
 <body>
+  <div id="fondo">
   <main class="mt-5">
     <form id="loginForm">
         <h1 class="login">Login</h1>
@@ -28,6 +29,13 @@
           <input type="checkbox" class="form-check-input" id="rememberMe"  >
           <label class="form-check-label" for="rememberMe">Recordar usuario</label>
         </div>
+        <div class="nav-item text-white" id="Modo"> <!-- Modo oscuro -->
+          <label class="switch">
+          <input type="checkbox" id="toggleDarkMode">
+          <span class="slider"></span>
+          </label>
+          <span class="label-text">Modo Oscuro</span>
+        </div>
         <button type="submit" id="btnIngresar">Ingresar</button>
         </form>
   </main>
@@ -39,6 +47,7 @@
         <a id="volver" href="#">Volver arriba </a>
       </p>
     </div>
+  </div>
   </footer>
   <script type="module" src="js/login.js"></script>
 </body>
